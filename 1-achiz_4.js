@@ -24,6 +24,69 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
        
 
 
+    //Cap II Rind 110 >= rind 111 + rind 112 + rind 113 pe toate coloanele
+
+
+    for (var i = 1; i <= 9; i++) {
+        var r110 = 0;
+        r110 = Number(values["CAP2_R110_C" + i]);
+        var r111 = 0;
+        r111 = Number(values["CAP2_R111_C" + i]);
+        var r112 = 0;
+        r112 = Number(values["CAP2_R112_C" + i]);
+        var r113 = 0;
+        r113 = Number(values["CAP2_R113_C" + i]);
+        
+        
+        var r111_113 = 0;
+
+        r111_113 = r111 + r112 + r113;
+
+        if (r110 < r111_113) {
+            webform.errors.push({
+                'fieldName': 'CAP2_R110_C' + i,
+                'weight': 1,
+                'msg': Drupal.t('Cod eroare: 54-010 Cap II Rind 110 >= rind 111 + rind 112 + rind 113 pe coloana .@col', { '@col': i })
+            });
+        }
+    }
+
+
+    //Cap I Rind10 >= rind 11+ rind 14 + rind 15 +rind16 + rind17 + rind18 + rind19 pe toate coloanele
+
+    for (var i = 1; i <= 8; i++) {
+        var r10 = 0; 
+        r10  = Number(values["CAP1_R10_C" + i]);
+        var r11 = 0;
+        r11 = Number(values["CAP1_R11_C" + i]);
+        var r14 = 0;
+        r14 = Number(values["CAP1_R14_C" + i]);
+        var r15 = 0;
+        r15 = Number(values["CAP1_R15_C" + i]);
+        var r16 = 0;
+        r16 = Number(values["CAP1_R16_C" + i]);
+        var r17 = 0;
+        r17 = Number(values["CAP1_R17_C" + i]);
+        var r18 = 0;
+        r18 = Number(values["CAP1_R18_C" + i]);
+        var r19 = 0;
+        r19 = Number(values["CAP1_R14_C" + i]);
+
+        var r11_19 = 0;
+        
+        r11_19 = r11 + r14 + r15 + r16 + r17 + r18 + r19  
+
+        if (r10 < r11_19) {
+            webform.errors.push({
+                'fieldName': 'CAP1_R10_C' + i,
+                'weight': 1,
+                'msg': Drupal.t('Cod eroare: 54-001 Cap I Rind10 >= rind 11+ rind 14 + rind 15 +rind16 + rind17 + rind18 + rind19 pe coloana .@col', { '@col': i })
+            });
+        }
+    }
+
+
+
 
     
 
