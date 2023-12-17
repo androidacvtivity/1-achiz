@@ -24,6 +24,41 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
        
 
 
+    //Cap I Rind10 >= rind 11+ rind 14 + rind 15 +rind16 + rind17 + rind18 + rind19 pe toate coloanele
+
+    for (var i = 1; i <= 8; i++) {
+        var r10 = 0; 
+        r10  = Number(values["CAP1_R10_C" + i]);
+        var r11 = 0;
+        r11 = Number(values["CAP1_R11_C" + i]);
+        var r14 = 0;
+        r14 = Number(values["CAP1_R14_C" + i]);
+        var r15 = 0;
+        r15 = Number(values["CAP1_R15_C" + i]);
+        var r16 = 0;
+        r16 = Number(values["CAP1_R16_C" + i]);
+        var r17 = 0;
+        r17 = Number(values["CAP1_R17_C" + i]);
+        var r18 = 0;
+        r18 = Number(values["CAP1_R18_C" + i]);
+        var r19 = 0;
+        r19 = Number(values["CAP1_R14_C" + i]);
+
+        var r11_19 = 0;
+        
+        r11_19 = r11 + r14 + r15 + r16 + r17 + r18 + r19  
+
+        if (r10 < r11_19) {
+            webform.errors.push({
+                'fieldName': 'CAP1_R10_C' + i,
+                'weight': 1,
+                'msg': Drupal.t('Cod eroare: 54-001 Cap I Rind10 >= rind 11+ rind 14 + rind 15 +rind16 + rind17 + rind18 + rind19 pe coloana .@col', { '@col': i })
+            });
+        }
+    }
+
+
+
 
     
 
