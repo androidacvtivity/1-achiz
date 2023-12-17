@@ -100,3 +100,6 @@
 [CAP1_R131_C7]+[CAP1_R131_C1]=[CAP2_R131_C2]msg(Error);
 
 
+
+
+
