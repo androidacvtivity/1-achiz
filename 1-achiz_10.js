@@ -21,7 +21,9 @@
 
 webform.validators.achiz_1 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
-       
+    
+    
+    
 
 
     //Cap I Rind 130 >= rind 131 pe toate coloanele
@@ -37,7 +39,7 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
             webform.errors.push({
                 'fieldName': 'CAP1_R130_C' + i,
                 'weight': 1,
-                'msg': Drupal.t('Cod eroare: 54-005 Cap I Rind 130 >= rind 131 pe coloana  @col  - @r130 < @r131 ', { '@col': i, '@r130': r130, '@r131': r131 })
+                'msg': Drupal.t('Cod eroare: 54-006 Cap I Rind 130 >= rind 131 pe coloana  @col  - @r130 < @r131 ', { '@col': i, '@r130': r130, '@r131': r131 })
             });
         }
     }
@@ -92,6 +94,9 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
             });
         }
     }
+
+
+
 
 
     //Cap I Rind10 >= rind 11+ rind 14 + rind 15 +rind16 + rind17 + rind18 + rind19 pe toate coloanele
