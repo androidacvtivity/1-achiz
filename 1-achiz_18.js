@@ -23,6 +23,89 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
     
 
+    //Daca Rind 122 col1 <> 0, atunci rind 123 col2 <> 0  si invers
+
+
+    if (!isNaN(Number(values["CAP21_R122_C1"]))) {
+        var col1 = 0;
+        col1 = Number(values["CAP21_R122_C1"]);
+    }
+
+    if (!isNaN(Number(values["CAP21_R123_C2"]))) {
+        var col2 = 0;
+        col2 = Number(values["CAP21_R123_C2"]);
+    }
+
+    if ((col1 > 0 && col2 == 0)) {
+        webform.errors.push({
+            'fieldName': 'CAP21_R122_C2',
+            'weight': 11,
+            'msg': Drupal.t('Cod eroare: 54-019  Informativ, daca exista Rind 122 col1  atunci exista Rind 123 col2  &col1, -  &col2', { '&col1': col1, '&col2': col2 })
+        });
+    }
+    else
+        if ((col2 > 0 && col1 == 0)) {
+            webform.errors.push({
+                'fieldName': 'CAP21_R123_C1',
+                'weight': 12,
+                'msg': Drupal.t('Cod eroare: 54-019 Informativ, daca exista Rind 123 col2  atunci exista Rind 122 col1  &col2, -  &col1', { '&col1': col1, '&col2': col2 })
+            });
+        }
+
+
+
+    //Daca Rind 120 col1 <> 0, atunci rind 121 col2 <> 0  si invers
+
+
+    if (!isNaN(Number(values["CAP21_R120_C1"]))) {
+        var col1 = 0;
+        col1  = Number(values["CAP21_R120_C1"]);
+    }
+
+    if (!isNaN(Number(values["CAP21_R121_C2"]))) {
+        var col2 = 0;
+        col2 = Number(values["CAP21_R121_C2"]);
+    }
+
+    if ((col1 > 0 && col2 == 0)) {
+        webform.errors.push({
+            'fieldName': 'CAP21_R121_C2',
+            'weight': 11,
+            'msg': Drupal.t('Cod eroare: 54-018  Informativ, daca exista Rind 120 col1  atunci exista Rind 121 col2  &col1, -  &col2', { '&col1': col1, '&col2': col2 })
+        });
+    }
+    else
+        if ((col2 > 0 && col1 == 0)) {
+            webform.errors.push({
+                'fieldName': 'CAP21_R120_C1',
+                'weight': 12,
+                'msg': Drupal.t('Cod eroare: 54-018 Informativ, daca exista Rind 121 col2  atunci exista Rind 120 col1  &col2, -  &col1', { '&col1': col1, '&col2': col2 })
+            });
+        }
+
+
+
+
+    //Cap II Rind 130 >= rind 131
+
+
+    for (var i = 1; i <= 9; i++) {
+        var r130 = 0;
+        r130 = Number(values["CAP2_R130_C" + i]);
+        var r130 = 0;
+        r130 = Number(values["CAP2_R130_C" + i]);
+
+
+        if (r130 < r131) {
+            webform.errors.push({
+                'fieldName': 'CAP2_R130_C' + i,
+                'weight': 1,
+                'msg': Drupal.t('Cod eroare: 54-016 Cap II Rind 130 >= rind 131 pe coloana  @col  - @rr130 < @rr131 ', { '@col': i, '@rr130': r130, '@rr131': r131 })
+            });
+        }
+    }
+
+
     //Cap II Rind 112 >= rind 115 pe toate coloanele
 
     for (var i = 1; i <= 9; i++) {
@@ -36,7 +119,7 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
             webform.errors.push({
                 'fieldName': 'CAP2_R112_C' + i,
                 'weight': 1,
-                'msg': Drupal.t('Cod eroare: 54-011 Cap II Rind 112 >= rind 115 pe coloana  @col  - @r112 < @r81 ', { '@col': i, '@r112': r112, '@r115': r115 })
+                'msg': Drupal.t('Cod eroare: 54-011 Cap II Rind 112 >= rind 115 pe coloana  @col  - @r112 < @r115 ', { '@col': i, '@r112': r112, '@r115': r115 })
             });
         }
     }
