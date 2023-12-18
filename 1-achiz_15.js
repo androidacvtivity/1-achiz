@@ -23,6 +23,26 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
     
 
+    //Cap II Rind 130 >= rind 131
+
+
+    for (var i = 1; i <= 9; i++) {
+        var r130 = 0;
+        r130 = Number(values["CAP2_R130_C" + i]);
+        var r130 = 0;
+        r130 = Number(values["CAP2_R130_C" + i]);
+
+
+        if (r130 < r131) {
+            webform.errors.push({
+                'fieldName': 'CAP2_R130_C' + i,
+                'weight': 1,
+                'msg': Drupal.t('Cod eroare: 54-016 Cap II Rind 130 >= rind 131 pe coloana  @col  - @rr130 < @rr131 ', { '@col': i, '@rr130': r130, '@rr131': r131 })
+            });
+        }
+    }
+
+
     //Cap II Rind 112 >= rind 115 pe toate coloanele
 
     for (var i = 1; i <= 9; i++) {
@@ -36,7 +56,7 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
             webform.errors.push({
                 'fieldName': 'CAP2_R112_C' + i,
                 'weight': 1,
-                'msg': Drupal.t('Cod eroare: 54-011 Cap II Rind 112 >= rind 115 pe coloana  @col  - @r112 < @r81 ', { '@col': i, '@r112': r112, '@r115': r115 })
+                'msg': Drupal.t('Cod eroare: 54-011 Cap II Rind 112 >= rind 115 pe coloana  @col  - @r112 < @r115 ', { '@col': i, '@r112': r112, '@r115': r115 })
             });
         }
     }

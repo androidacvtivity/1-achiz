@@ -36,7 +36,7 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
             webform.errors.push({
                 'fieldName': 'CAP2_R112_C' + i,
                 'weight': 1,
-                'msg': Drupal.t('Cod eroare: 54-011 Cap II Rind 112 >= rind 115 pe coloana  @col  - @r112 < @r81 ', { '@col': i, '@r112': r112, '@r115': r115 })
+                'msg': Drupal.t('Cod eroare: 54-011 Cap II Rind 112 >= rind 115 pe coloana  @col  - @r112 < @r115 ', { '@col': i, '@r112': r112, '@r115': r115 })
             });
         }
     }
