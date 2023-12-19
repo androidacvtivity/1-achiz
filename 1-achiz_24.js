@@ -92,8 +92,8 @@ webform.validators.achiz_1 = function (v, allowOverpass) {
     for (var i = 1; i <= 9; i++) {
         var r130 = 0;
         r130 = Number(values["CAP2_R130_C" + i]);
-        var r130 = 0;
-        r130 = Number(values["CAP2_R130_C" + i]);
+        var r131 = 0;
+        r131 = Number(values["CAP2_R131_C" + i]);
 
 
         if (r130 < r131) {
