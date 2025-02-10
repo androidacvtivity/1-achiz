@@ -22,6 +22,21 @@
 webform.validators.achiz_1 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
 
+    const row180Errors = validateRow180Sum(values);
+
+    // Push errors into webform if validation fails
+    if (row180Errors) {
+        row180Errors.forEach(error => webform.errors.push(error));
+    }
+
+    // Call the validation function for row 120
+    const row120Errors = validateRow120Sum(values);
+
+    // Push errors into webform if validation fails
+    if (row120Errors) {
+        row120Errors.forEach(error => webform.errors.push(error));
+    }
+
     // Call the validation function for row 10
     const row10Errors = validateRow10Sum(values);
 
@@ -91,6 +106,40 @@ function validatePhoneNumber(phone) {
         });
     }
 }
+
+function validateRow180Sum(values) {
+    let errors = [];
+
+    // Define the maximum number of columns based on the dataset
+    let maxColumns = 9; // Adjust if needed
+
+    for (let i = 1; i <= maxColumns; i++) {
+        // Parse values as numbers, ensuring they are not NaN
+        let row180 = isNaN(Number(values[`CAP1_R180_C${i}`])) ? 0 : Number(values[`CAP1_R180_C${i}`]);
+        let row181 = isNaN(Number(values[`CAP1_R181_C${i}`])) ? 0 : Number(values[`CAP1_R181_C${i}`]);
+        let row182 = isNaN(Number(values[`CAP1_R182_C${i}`])) ? 0 : Number(values[`CAP1_R182_C${i}`]);
+        let row183 = isNaN(Number(values[`CAP1_R183_C${i}`])) ? 0 : Number(values[`CAP1_R183_C${i}`]);
+        let row184 = isNaN(Number(values[`CAP1_R184_C${i}`])) ? 0 : Number(values[`CAP1_R184_C${i}`]);
+        let row185 = isNaN(Number(values[`CAP1_R185_C${i}`])) ? 0 : Number(values[`CAP1_R185_C${i}`]);
+
+        // Calculate the expected sum
+        let expectedSum = row181 + row182 + row183 + row184 + row185;
+
+        // Check if Row 180 is equal to the calculated sum
+        if (row180 !== expectedSum) {
+            errors.push({
+                'fieldName': `CAP1_R180_C${i}`, // Dynamic field name with column index
+                'msg': Drupal.t(
+                    `Cod eroare: 54-010, Cap I, Rând 180 trebuie să fie egal cu suma rândurilor 181 - 185 în coloana ${i}. 
+                    Valoare actuală: ${row180}, Valoare așteptată: ${expectedSum}`
+                )
+            });
+        }
+    }
+
+    return errors.length > 0 ? errors : null;
+}
+
 
 
 function validateRow10Sum(values) {
@@ -230,6 +279,39 @@ function validateRow113Sum(values) {
                 'msg': Drupal.t(
                     `Cod eroare: 54-007, Cap I, Rând 113 trebuie să fie egal cu suma rândurilor 113.1 - 113.9 în coloana ${i}. 
                     Valoare actuală: ${row113}, Valoare așteptată: ${expectedSum}`
+                )
+            });
+        }
+    }
+
+    return errors.length > 0 ? errors : null;
+}
+
+
+function validateRow120Sum(values) {
+    let errors = [];
+
+    // Define the maximum number of columns based on the dataset
+    let maxColumns = 9; // Adjust if needed
+
+    for (let i = 1; i <= maxColumns; i++) {
+        // Parse values as numbers, ensuring they are not NaN
+        let row120 = isNaN(Number(values[`CAP1_R120_C${i}`])) ? 0 : Number(values[`CAP1_R120_C${i}`]);
+        let row1201 = isNaN(Number(values[`CAP1_R1201_C${i}`])) ? 0 : Number(values[`CAP1_R1201_C${i}`]);
+        let row1202 = isNaN(Number(values[`CAP1_R1202_C${i}`])) ? 0 : Number(values[`CAP1_R1202_C${i}`]);
+        let row1203 = isNaN(Number(values[`CAP1_R1203_C${i}`])) ? 0 : Number(values[`CAP1_R1203_C${i}`]);
+        let row1204 = isNaN(Number(values[`CAP1_R1204_C${i}`])) ? 0 : Number(values[`CAP1_R1204_C${i}`]);
+
+        // Calculate the expected sum
+        let expectedSum = row1201 + row1202 + row1203 + row1204;
+
+        // Check if Row 120 is equal to the calculated sum
+        if (row120 !== expectedSum) {
+            errors.push({
+                'fieldName': `CAP1_R120_C${i}`, // Dynamic field name with column index
+                'msg': Drupal.t(
+                    `Cod eroare: 54-008, Cap I, Rând 120 trebuie să fie egal cu suma rândurilor 120.1 - 120.4 în coloana ${i}. 
+                    Valoare actuală: ${row120}, Valoare așteptată: ${expectedSum}`
                 )
             });
         }
