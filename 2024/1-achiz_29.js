@@ -68,18 +68,18 @@ function validateRow10Sum(values) {
     let errors = [];
 
     // Define the maximum number of columns based on the dataset
-    let maxColumns = 9; // Adjust based on the number of columns in the dataset
+    let maxColumns = 9; // Adjust if needed
 
     for (let i = 1; i <= maxColumns; i++) {
-        // Read values from the respective rows for each column
-        let row10 = Number(values[`CAP1_R10_C${i}`]) || 0;
-        let row11 = Number(values[`CAP1_R11_C${i}`]) || 0;
-        let row14 = Number(values[`CAP1_R14_C${i}`]) || 0;
-        let row15 = Number(values[`CAP1_R15_C${i}`]) || 0;
-        let row16 = Number(values[`CAP1_R16_C${i}`]) || 0;
-        let row17 = Number(values[`CAP1_R17_C${i}`]) || 0;
-        let row18 = Number(values[`CAP1_R18_C${i}`]) || 0;
-        let row19 = Number(values[`CAP1_R19_C${i}`]) || 0;
+        // Parse values as numbers, ensuring they are not NaN
+        let row10 = isNaN(Number(values[`CAP1_R10_C${i}`])) ? 0 : Number(values[`CAP1_R10_C${i}`]);
+        let row11 = isNaN(Number(values[`CAP1_R11_C${i}`])) ? 0 : Number(values[`CAP1_R11_C${i}`]);
+        let row14 = isNaN(Number(values[`CAP1_R14_C${i}`])) ? 0 : Number(values[`CAP1_R14_C${i}`]);
+        let row15 = isNaN(Number(values[`CAP1_R15_C${i}`])) ? 0 : Number(values[`CAP1_R15_C${i}`]);
+        let row16 = isNaN(Number(values[`CAP1_R16_C${i}`])) ? 0 : Number(values[`CAP1_R16_C${i}`]);
+        let row17 = isNaN(Number(values[`CAP1_R17_C${i}`])) ? 0 : Number(values[`CAP1_R17_C${i}`]);
+        let row18 = isNaN(Number(values[`CAP1_R18_C${i}`])) ? 0 : Number(values[`CAP1_R18_C${i}`]);
+        let row19 = isNaN(Number(values[`CAP1_R19_C${i}`])) ? 0 : Number(values[`CAP1_R19_C${i}`]);
 
         // Calculate the expected sum
         let expectedSum = row11 + row14 + row15 + row16 + row17 + row18 + row19;
@@ -89,7 +89,8 @@ function validateRow10Sum(values) {
             errors.push({
                 'fieldName': `CAP1_R10_C${i}`, // Dynamic field name with column index
                 'msg': Drupal.t(
-                    `Cod eroare: 54-001, Cap I, Rând 10 trebuie să fie egal cu suma rândurilor 11, 14, 15, 16, 17, 18 și 19 în coloana ${i}. Valoare actuală: ${row10}, Valoare așteptată: ${expectedSum}`
+                    `Cod eroare: 54-001, Cap I, Rând 10 trebuie să fie egal cu suma rândurilor 11, 14, 15, 16, 17, 18 și 19 în coloana ${i}. 
+                    Valoare actuală: ${row10}, Valoare așteptată: ${expectedSum}`
                 )
             });
         }
