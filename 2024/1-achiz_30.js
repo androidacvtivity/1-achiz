@@ -131,7 +131,7 @@ function validateRow11Sum(values) {
             errors.push({
                 'fieldName': `CAP1_R11_C${i}`, // Dynamic field name with column index
                 'msg': Drupal.t(
-                    `Cod eroare: 54-001, Cap I, Rând 11 trebuie să fie egal cu suma rândurilor 12 și 13 în coloana ${i}. 
+                    `Cod eroare: 54-002, Cap I, Rând 11 trebuie să fie egal cu suma rândurilor 12 și 13 în coloana ${i}. 
                     Valoare actuală: ${row11}, Valoare așteptată: ${expectedSum}`
                 )
             });
