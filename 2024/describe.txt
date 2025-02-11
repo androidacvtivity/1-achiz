@@ -1,0 +1,18 @@
+B021125 
+
+
+B012025 cc608e8a Commit to B012025 by vitalie.bancu at 2025-01-20 15:41 - Modificarea raportului 24 Agro Anual - 24_Agro_24_067.js
+
+B012325 40c96179 Commit to B012325 by vitalie.bancu at 2025-01-23 14:09 - Modificarea raportului EI 78 (44-0023,44-0030) - EI-78-22-vers.1.17.js
+
+B021125	2bea7d86	Commit to B021125 by vitalie.bancu at 2025-02-11 10:48 - Modificarea raportului 1 Achiz 1-achiz_42.js
+
+Am creat branc-ul si pentru 1 Achiz (B021125)
+
+Deci sunt trei branch-uri care trebuie plasat. 
+
+1. B012025
+2. B012325
+3. B021125
+
+am trimis si lui Elena.
