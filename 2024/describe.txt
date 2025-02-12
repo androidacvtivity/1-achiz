@@ -14,5 +14,15 @@ Deci sunt trei branch-uri care trebuie plasat.
 1. B012025
 2. B012325
 3. B021125
+4. B0211252
 
 am trimis si lui Elena.
+
+S-a finisat  azi inca un raport 1 TIC am creat si branci-ul  B0211252. Vor fi 4 
+
+1. B012025
+2. B012325
+3. B021125
+4. B0211252
+
+Se poate adaug asi acesta 
