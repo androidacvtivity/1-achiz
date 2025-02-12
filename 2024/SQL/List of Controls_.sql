@@ -25,7 +25,7 @@ SELECT
         MAX(A.CONTROL_VERS) CONTROL_VERS
         
         FROM CIS2.MD_CONTROL A
-        
+        -------------------
         
          WHERE
          1=1
