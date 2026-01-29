@@ -26,3 +26,18 @@ S-a finisat  azi inca un raport 1 TIC am creat si branci-ul  B0211252. Vor fi 4
 4. B0211252
 
 Se poate adaug asi acesta 
+
+
+Tab. 1 Cap.I 
+Tab. 2 Cap.I 
+Tab. 3 Cap.I  - Rand 10
+Tab. 4 Cap.I  - Rand 11
+Tab. 5 Cap.I  - Rand 12
+Tab. 6 Cap.I  - Rand 13
+Tab. 7 Cap.I  - Rand 14
+Tab. 8 Cap.I  - Rand 15
+Tab. 9 Cap.I  - Rand 16
+Tab. 10 Cap.I  - Rand 17
+Tab. 11 Cap.I  - Rand 18
+Tab. 12 Cap.I  - Rand 19
+Tab. 13 Cap.I  - Rand 20
