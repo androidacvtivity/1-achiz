@@ -434,7 +434,7 @@ function validateRow113Sum(values) {
     // Define the maximum number of columns based on the dataset
     let maxColumns = 9; // Adjust if needed
 
-    for (let i = 1; i <= maxColumns; i++) {
+    for (let i = 1; i <= maxColumns; i++) {54-005
         // Parse values as numbers, ensuring they are not NaN
         let row113 = isNaN(Number(values[`CAP1_R113_C${i}`])) ? 0 : Number(values[`CAP1_R113_C${i}`]);
         let row1131 = isNaN(Number(values[`CAP1_R1131_C${i}`])) ? 0 : Number(values[`CAP1_R1131_C${i}`]);
@@ -579,7 +579,7 @@ function validateRow110Sum(values) {
     return errors.length > 0 ? errors : null;
 }
 
-
+//54-005	Cap I Rind 111 >= rind 119 + 117  pe toate coloanele
 function validateRow111Sum(values) {
     let errors = [];
     let maxColumns = 9; // Adjust if needed
